@@ -22,7 +22,7 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
               )}
 
               {showCatMenu && (
-                <ul className="absolute top-6 rounded-md left-0 min-w-[250px] p-1 shadow-lg">
+                <ul className="absolute bg-white top-6 rounded-md left-0 min-w-[250px] p-1 shadow-lg">
                   {subMenuData?.map((subMenu) => {
                     return (
                       <Link
