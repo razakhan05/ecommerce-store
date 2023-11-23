@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import product from "../public/product-1.webp";
+import product from "../../public/product-1.webp";
 const ProductCard = () => {
   return (
     <Link
