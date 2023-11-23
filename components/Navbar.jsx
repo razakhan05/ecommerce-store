@@ -41,11 +41,17 @@ const Navbar = () => {
 
   return (
     <header
-      className={`flex items-center justify-between w-full h-12 md:h-20 z-20 sticky top-0 transition-transform duration-300 ${show}`}
+      className={`flex bg-white items-center justify-between w-full h-12 md:h-20 z-20 sticky top-0 transition-transform duration-300 ${show}`}
     >
       <Wrapper className="h-16 flex justify-between items-center">
         <Link href={"/"}>
-          <Image src={Logo} alt="New Balance Logo" width={80} height={80} />
+          <Image
+            src={Logo}
+            alt="Super Kicks"
+            className=" sm:w-20 sm:h-20 h-10 w-10"
+            width={80}
+            height={80}
+          />
         </Link>
         <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
 
