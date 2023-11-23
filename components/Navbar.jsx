@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "../public/super-kicks.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Wrapper from "./Wrapper";
 import Menu from "./Menu";
 import CartIcon from "./CartIcon";
@@ -14,8 +14,30 @@ const Navbar = () => {
   const [show, setShow] = useState("translate-y-0");
   const [showCatMenu, setShowCatMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [categories, setCategories] = useState(null);
 
   const cartItems = [1, 2, 4, 4, 5, 9, 0];
+
+  const controlNavbar = () => {
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+        setShow("-translate-y-[80px]");
+      } else {
+        setShow("shadow-sm");
+      }
+    } else {
+      setShow("translate-y-0");
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <header
