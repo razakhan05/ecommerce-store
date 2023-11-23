@@ -1,6 +1,6 @@
-import HeroBanner from "@/components/HeroBanner";
-import ProductCard from "@/components/ProductCard";
-import Wrapper from "@/components/Wrapper";
+import HeroBanner from "@/app/components/HeroBanner";
+import ProductCard from "@/app/components/ProductCard";
+import Wrapper from "@/app/components/Wrapper";
 
 export default function Home() {
   return (
