@@ -6,17 +6,29 @@ import ProductDetailsCrousel from "@/app/components/ProductDetailsCrousel";
 import RelatedProducts from "@/app/components/RelatedProducts";
 import { PRODUCT_DETAILS } from "@/lib/data";
 import { getDiscountedPrice } from "@/lib/helper";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/cartSlice";
 
 const ProductDetails = ({ params: { slug } }) => {
   const [selectedSize, setSelectedSize] = useState();
   const [error, setError] = useState(false);
 
-  const product = PRODUCT_DETAILS.find((p) => p.slug === slug);
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    if (!selectedSize) setError(true);
+    if (!selectedSize) {
+      setError(true);
+    } else {
+      dispatch(
+        addToCart({
+          ...product,
+          selectedSize,
+        })
+      );
+    }
   };
 
+  const product = PRODUCT_DETAILS.find((p) => p.slug === slug);
   return (
     <div className="w-full md:py-20">
       <Wrapper>
