@@ -1,8 +1,13 @@
+"use client";
 import HeroBanner from "@/app/components/HeroBanner";
 import ProductCard from "@/app/components/ProductCard";
 import Wrapper from "@/app/components/Wrapper";
+import { PRODUCT_DETAILS } from "@/lib/data";
+import { useState } from "react";
 
 export default function Home() {
+  const [products, setProducts] = useState(PRODUCT_DETAILS);
+
   return (
     <div>
       <HeroBanner />
@@ -21,22 +26,9 @@ export default function Home() {
 
         {/* products grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
-          {/* {products?.data?.map((product) => (? */}
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          <ProductCard  />
-          {/* ))} */}
+          {products?.map((product) => (
+            <ProductCard key={product.id} data={product} />
+          ))}
         </div>
 
         {/* Get your swag on - products grid */}
