@@ -12,10 +12,8 @@ import MenuMobile from "./MobileMenu";
 
 const Navbar = () => {
   const [show, setShow] = useState("translate-y-0");
-  const [showCatMenu, setShowCatMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [categories, setCategories] = useState(null);
 
   const cartItems = [1, 2, 4, 4, 5, 9, 0];
 
@@ -53,16 +51,9 @@ const Navbar = () => {
             height={80}
           />
         </Link>
-        <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu} />
+        <Menu />
 
-        {mobileMenu && (
-          <MenuMobile
-            showCatMenu={showCatMenu}
-            setShowCatMenu={setShowCatMenu}
-            setMobileMenu={setMobileMenu}
-            // categories={categories}
-          />
-        )}
+        {mobileMenu && <MenuMobile setMobileMenu={setMobileMenu} />}
 
         <div className="flex items-center gap-2 text-black">
           <CartIcon cartItems={cartItems} />
