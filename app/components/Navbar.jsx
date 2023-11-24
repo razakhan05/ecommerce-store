@@ -9,13 +9,14 @@ import Menu from "./Menu";
 import CartIcon from "./CartIcon";
 import MobileMenuIcon from "./MobileMenuIcon";
 import MenuMobile from "./MobileMenu";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [show, setShow] = useState("translate-y-0");
   const [mobileMenu, setMobileMenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const cartItems = [1, 2, 4, 4, 5, 9, 0];
+  const { cartItems } = useSelector((state) => state.cart);
 
   const controlNavbar = () => {
     if (window.scrollY > 200) {

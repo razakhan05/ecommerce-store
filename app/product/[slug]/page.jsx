@@ -8,12 +8,15 @@ import { PRODUCT_DETAILS } from "@/lib/data";
 import { getDiscountedPrice } from "@/lib/helper";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/cartSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = ({ params: { slug } }) => {
   const [selectedSize, setSelectedSize] = useState();
   const [error, setError] = useState(false);
 
   const dispatch = useDispatch();
+  const product = PRODUCT_DETAILS.find((p) => p.slug === slug);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -23,14 +26,29 @@ const ProductDetails = ({ params: { slug } }) => {
         addToCart({
           ...product,
           selectedSize,
+          singleProductPrice: product?.price,
         })
       );
+      notify();
     }
   };
 
-  const product = PRODUCT_DETAILS.find((p) => p.slug === slug);
+  const notify = () => {
+    toast.success("Added to cart successfully!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   return (
     <div className="w-full md:py-20">
+      <ToastContainer />
       <Wrapper>
         <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           {/* Left section - Product Images */}

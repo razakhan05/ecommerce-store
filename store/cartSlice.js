@@ -7,7 +7,15 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      state.cartItems = action.payload;
+      const totalItems = state.cartItems.find(
+        (p) => p.id === action.payload.id
+      );
+      if (totalItems) {
+        totalItems.qauntity++;
+        totalItems.price = totalItems.singleProductPrice * totalItems.qauntity;
+      } else {
+        state.cartItems.push({ ...action.payload, qauntity: 1 });
+      }
     },
   },
 });
