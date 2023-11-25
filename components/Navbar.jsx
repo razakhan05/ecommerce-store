@@ -2,14 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "../../public/super-kicks.png";
+import Logo from "../public/super-kicks.png";
 import { useEffect, useState } from "react";
-import Wrapper from "./Wrapper";
 import Menu from "./Menu";
-import CartIcon from "./CartIcon";
 import MobileMenuIcon from "./MobileMenuIcon";
 import MenuMobile from "./MobileMenu";
 import { useSelector } from "react-redux";
+import Wrapper from "./Wrapper";
+import CartIcon from "./cart/CartIcon";
 
 const Navbar = () => {
   const [show, setShow] = useState("translate-y-0");

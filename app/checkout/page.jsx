@@ -1,10 +1,8 @@
 "use client";
 import React, { useMemo } from "react";
-import Wrapper from "../components/Wrapper";
 import Image from "next/image";
-import Link from "next/link";
-import CartItems from "../components/CartItems";
 import { useSelector } from "react-redux";
+import Wrapper from "@/components/Wrapper";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

@@ -1,12 +1,11 @@
 "use client";
-import HeroBanner from "@/app/components/HeroBanner";
-import ProductCard from "@/app/components/ProductCard";
-import Wrapper from "@/app/components/Wrapper";
+import HeroBanner from "@/components/HeroBanner";
+import Wrapper from "@/components/Wrapper";
+import ProductCard from "@/components/product/ProductCard";
 import { PRODUCT_DETAILS } from "@/lib/data";
-import { useState } from "react";
 
 export default function Home() {
-  const [products, setProducts] = useState(PRODUCT_DETAILS);
+  const products = PRODUCT_DETAILS;
 
   return (
     <div>
@@ -30,8 +29,6 @@ export default function Home() {
             <ProductCard key={product.id} data={product} />
           ))}
         </div>
-
-        {/* Get your swag on - products grid */}
       </Wrapper>
     </div>
   );

@@ -1,15 +1,16 @@
 import Image from "next/image";
 import React from "react";
+
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { removeFromCart, updateCart } from "@/store/cartSlice";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { useDispatch } from "react-redux";
-import { removeFromCart, updateCart } from "@/store/cartSlice";
+} from "../ui/select";
 
 const CartItems = ({ data }) => {
   const dispatch = useDispatch();
