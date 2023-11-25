@@ -10,10 +10,13 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
 
   const subTotal = useMemo(() => {
-    let result = cartItems.reduce((total, val) => total + val.price, 0);
-    result.toString();
+    let result = cartItems.reduce(
+      (total, val) => total + parseFloat(val.price),
+      0
+    );
     return result;
   }, [cartItems]);
+
   return (
     <div className="w-full md:py-20">
       <Wrapper>
@@ -32,8 +35,8 @@ const Cart = () => {
               {/* CART ITEMS START */}
               <div className="flex-[2]">
                 <div className="text-lg font-bold">Cart Items</div>
-                {cartItems?.map((item) => (
-                  <CartItems key={item.id} data={item} />
+                {cartItems?.map((item, i) => (
+                  <CartItems key={i} data={item} />
                 ))}
               </div>
               {/* CART ITEMS END */}
@@ -60,10 +63,13 @@ const Cart = () => {
                 </div>
 
                 {/* BUTTON START */}
-                <button className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center">
+                <Link
+                  href={"/checkout"}
+                  className="w-full py-4 rounded-full bg-primary text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
+                >
                   Checkout
                   {/* {loading && <img src="/spinner.svg" />} */}
-                </button>
+                </Link>
                 {/* BUTTON END */}
               </div>
               {/* SUMMARY END */}
