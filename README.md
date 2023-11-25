@@ -1,6 +1,5 @@
 # Super-kicks E-Commerce  Next.js 14 App Router, React, Tailwind, Redux Toolkit, ,2023
 
-![live-site](https://ecommerce-store-silk-alpha.vercel.app/)
 
 
 This is a repository for a Super-kicks E-Commerce  Next.js 14 App Router, React, Tailwind, Redux Toolkit
