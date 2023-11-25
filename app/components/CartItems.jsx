@@ -56,15 +56,14 @@ const CartItems = ({ data }) => {
                   <SelectValue placeholder={data.selectedSize} />
                 </SelectTrigger>
                 <SelectContent>
-                  {data.size.data.map((item, i) => (
-                    <>
-                      {item.enabled && (
+                  {data.size.data.map(
+                    (item, i) =>
+                      item.enabled && (
                         <SelectItem key={i} value={item.size}>
                           {item.size}
                         </SelectItem>
-                      )}
-                    </>
-                  ))}
+                      )
+                  )}
                 </SelectContent>
               </Select>
             </div>
