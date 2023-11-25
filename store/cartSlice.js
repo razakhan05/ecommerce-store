@@ -1,10 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Retrieve cart items from localStorage if available
-const initialState = {
-  cartItems: JSON.parse(localStorage?.getItem("cartItems")) || [],
+const getInitialCartItems = () => {
+  if (typeof window !== "undefined") {
+    const cartItems = localStorage.getItem("cartItems");
+    return cartItems ? JSON.parse(cartItems) : [];
+  }
+  return [];
 };
 
+const initialState = {
+  cartItems: getInitialCartItems(),
+};
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -19,8 +26,9 @@ export const cartSlice = createSlice({
       } else {
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
-      // Save cart items to localStorage after updating
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      }
     },
     updateCart: (state, action) => {
       state.cartItems = state.cartItems.map((p) => {
@@ -32,15 +40,17 @@ export const cartSlice = createSlice({
         }
         return p;
       });
-      // Save cart items to localStorage after updating
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      }
     },
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
         (p) => p.id !== action.payload.id
       );
-      // Save cart items to localStorage after updating
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      }
     },
   },
 });
