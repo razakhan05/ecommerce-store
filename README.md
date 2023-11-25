@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Super-kicks E-Commerce  Next.js 14 App Router, React, Tailwind, Redux Toolkit, ,2023
 
-## Getting Started
+![live-site](https://ecommerce-store-silk-alpha.vercel.app/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a repository for a Super-kicks E-Commerce  Next.js 14 App Router, React, Tailwind, Redux Toolkit
+
+Key Features:
+
+- Utilization of Tailwind CSS & ShadowCSS for UI design enhancement.
+- Integration of real-looking JSON dummy data for the item list.
+- Dynamic generation of item listings based on the provided data.
+- Implementation of Redux Toolkit for efficient state management.
+- Seamless navigation across item listings, product details, and the shopping cart.
+- Real-time functionality enabling addition, removal, and updates to the cart.
+- Dynamic adjustment of the total price based on the contents within the cart.
+- Straightforward checkout form for user convenience.
+- Implementation of an order summary and payment details within the checkout page.
+- Well-maintained folder structure and optimized code for improved readability and performance.
+
+### Prerequisites
+
+**Node version 14.x**
+
+### Cloning the repository
+
+```shell
+git clone https://github.com/razakhan05/ecommerce-store.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install packages
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```shell
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Start the app
 
-## Learn More
+```shell
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Available commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Running commands with npm `npm run [command]`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| command         | description                              |
+| :-------------- | :--------------------------------------- |
+| `dev`           | Starts a development instance of the app |
